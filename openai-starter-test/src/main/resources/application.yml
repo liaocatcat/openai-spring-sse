@@ -2,5 +2,5 @@ server:
   port: 8080
 
 openai:
-  token: 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
+  token: 密钥
   timeout: 60000
