@@ -3,7 +3,9 @@
 #### 介绍
 关于chatGPT的东拼西凑，内含三个调用版本的冗余代码，现在运行的是最新的
 
-注意：该项目还未提交到中央仓库，因此你需要下载源码到本地安装。
+启动模块在openai-starter-test,配置也是
+
+各种调用方法demo可查看openai-spring-boot-starter模块中的工具类 src\main\java\cn\gjsm\miukoo\utils\OpenAiUtils.java
 
 
 
