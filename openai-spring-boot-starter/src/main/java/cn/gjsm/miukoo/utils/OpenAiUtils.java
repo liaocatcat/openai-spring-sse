@@ -778,7 +778,8 @@ public class OpenAiUtils {
         System.out.println(response.body());
         JSONObject res = JSONObject.parseObject(response.body());
         JSONArray resData = res.getJSONArray("data");
-        return getImageBase(((JSONObject)resData.get(0)).get("url")+"");
+        return ((JSONObject)resData.get(0)).get("url")+"";
+//        return getImageBase(((JSONObject)resData.get(0)).get("url")+"");
     }
     public static String fastDownload(String src) throws Exception {
         HttpResponse response = HttpRequest.get("https://doget-api.oopscloud.xyz/api/get_download_token?url="+ URLEncoder.encode(src,"UTF-8")).execute();
