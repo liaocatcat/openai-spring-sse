@@ -66,7 +66,7 @@ public class OpenAIEventSourceListener extends EventSourceListener {
         ComletionResponseBody completionResponse = mapper.readValue(data, ComletionResponseBody.class); // 读取Json
         JSONObject dataj = new JSONObject();
         dataj.put("msg",completionResponse.getChoices()[0].getDelta().containsKey("content")?completionResponse.getChoices()[0].getDelta().get("content"):"");
-        Thread.sleep(50);//可以去掉，加这个只是为了页面逐字打印效果更明显。
+//        Thread.sleep(50);//可以去掉，加这个只是为了页面逐字打印效果更明显。
         sseEmitter.send(SseEmitter.event()
                 .id(completionResponse.getId())
                 .name("message")

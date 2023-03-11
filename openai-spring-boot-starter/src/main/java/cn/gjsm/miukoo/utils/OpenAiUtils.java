@@ -778,8 +778,8 @@ public class OpenAiUtils {
         System.out.println(response.body());
         JSONObject res = JSONObject.parseObject(response.body());
         JSONArray resData = res.getJSONArray("data");
-        return ((JSONObject)resData.get(0)).get("url")+"";
-//        return getImageBase(((JSONObject)resData.get(0)).get("url")+"");
+//        return ((JSONObject)resData.get(0)).get("url")+"";
+        return getImageBase(((JSONObject)resData.get(0)).get("url")+"");
     }
     public static String fastDownload(String src) throws Exception {
         HttpResponse response = HttpRequest.get("https://doget-api.oopscloud.xyz/api/get_download_token?url="+ URLEncoder.encode(src,"UTF-8")).execute();
@@ -787,8 +787,8 @@ public class OpenAiUtils {
         return "https://doget-api.oopscloud.xyz/api/download?token="+JSONObject.parseObject(response.body()).get("data");
     }
     public static String getImageBase(String src) throws Exception {
-        src = fastDownload(src);
-        System.out.println("fastUrl:"+src);
+//        src = fastDownload(src);
+//        System.out.println("fastUrl:"+src);
         HttpResponse response = HttpRequest.get(src).execute();
         byte[] data = null;
         try {
@@ -803,10 +803,10 @@ public class OpenAiUtils {
     }
     public static void main(String[] args) {
         //代理可以为null
-        Proxy proxy = new Proxy(Proxy.Type.HTTP, new InetSocketAddress("127.0.0.1", 10809));
+//        Proxy proxy = new Proxy(Proxy.Type.HTTP, new InetSocketAddress("127.0.0.1", 10809));
         OpenAiClient openAiClient = OpenAiClient.builder()
-                .apiKey("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")
-                .proxy(proxy)
+                .apiKey("")
+//                .proxy(proxy)
                 .build();
         //简单模型
         //CompletionResponse completions = //openAiClient.completions("我想申请转专业，从计算机专业转到会计学专业，帮我完成一份两百字左右的申请书");
@@ -827,7 +827,7 @@ public class OpenAiUtils {
                 .connectTimeout(50)
                 .readTimeout(50)
                 .writeTimeout(50)
-                .apiKey("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")
+                .apiKey("")
                 .proxy(proxy)
                 .build();
     }
