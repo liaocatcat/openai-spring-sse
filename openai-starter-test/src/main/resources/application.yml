@@ -3,5 +3,5 @@ server:
 
 openai:
 #  你的密钥可在此替换
-  token: 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
+  token:
   timeout: 60000
