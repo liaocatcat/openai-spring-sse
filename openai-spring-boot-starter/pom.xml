@@ -23,10 +23,10 @@
             <artifactId>spring-boot-configuration-processor</artifactId>
             <optional>true</optional>
         </dependency>
-        <dependency>
-            <groupId>com.theokanning.openai-gpt3-java</groupId>
-            <artifactId>client</artifactId>
-        </dependency>
+<!--        <dependency>-->
+<!--            <groupId>com.theokanning.openai-gpt3-java</groupId>-->
+<!--            <artifactId>client</artifactId>-->
+<!--        </dependency>-->
         <dependency>
             <groupId>com.unfbx</groupId>
             <artifactId>chatgpt-java</artifactId>

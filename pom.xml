@@ -17,7 +17,7 @@
         <maven.compiler.source>17</maven.compiler.source>
         <maven.compiler.target>17</maven.compiler.target>
 <!--        <openai-version>0.8.1</openai-version>-->
-        <openai-version>0.10.0</openai-version>
+<!--        <openai-version>0.10.0</openai-version>-->
     </properties>
 
     <parent>
@@ -26,13 +26,13 @@
         <version>3.0.0</version>
     </parent>
     <dependencyManagement>
-        <dependencies>
-            <dependency>
-                <groupId>com.theokanning.openai-gpt3-java</groupId>
-                <artifactId>client</artifactId>
-                <version>${openai-version}</version>
-            </dependency>
-        </dependencies>
+<!--        <dependencies>-->
+<!--            <dependency>-->
+<!--                <groupId>com.theokanning.openai-gpt3-java</groupId>-->
+<!--                <artifactId>client</artifactId>-->
+<!--                <version>${openai-version}</version>-->
+<!--            </dependency>-->
+<!--        </dependencies>-->
     </dependencyManagement>
     <dependencies>
         <dependency>
