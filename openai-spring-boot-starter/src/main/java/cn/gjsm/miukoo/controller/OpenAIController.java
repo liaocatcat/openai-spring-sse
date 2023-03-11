@@ -33,7 +33,7 @@ public class OpenAIController {
                 .connectTimeout(50)
                 .readTimeout(50)
                 .writeTimeout(50)
-                .apiKey("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")
+                .apiKey(OpenAiUtils.OPENAPI_TOKEN)
 //                .proxy(proxy)
                 .build();
         SseEmitter sseEmitter = new SseEmitter(-1L);
