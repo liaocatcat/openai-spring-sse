@@ -38,7 +38,7 @@ public class OpenAiUtils {
     public static final Map<String, OpenAi> PARMS = new HashMap<>();
 
     static {
-        PARMS.put("gpt-3.5-turbo", new OpenAi("gpt-3.5-turbo", "chatGPT", "依据现有知识库问&答", "gpt-3.5-turbo", "%s", 0.0, 1.0, 1.0, 0.0, 0.0, "\n"));
+        PARMS.put("OpenAi00", new OpenAi("OpenAi00", "chatGPT", "依据现有知识库问&答", "gpt-3.5-turbo", "%s", 0.0, 1.0, 1.0, 0.0, 0.0, "\n"));
 //        PARMS.put("OpenAi01", new OpenAi("OpenAi01", "问&答", "依据现有知识库问&答", "gpt-3.5-turbo", "Q: %s\nA:", 0.0, 1.0, 1.0, 0.0, 0.0, "\n"));
 //        PARMS.put("OpenAi02", new OpenAi("OpenAi02", "语法纠正", "将句子转换成标准的英语，输出结果始终是英文", "gpt-3.5-turbo", "%s", 0.0, 1.0, 1.0, 0.0, 0.0, ""));
 //        PARMS.put("OpenAi03", new OpenAi("OpenAi03", "内容概况", "将一段话，概况中心", "gpt-3.5-turbo", "Summarize this for a second-grade student:\n%s", 0.7, 1.0, 1.0, 0.0, 0.0, ""));
@@ -89,6 +89,7 @@ public class OpenAiUtils {
 //        PARMS.put("OpenAi48", new OpenAi("OpenAi48", "知识学习", "可以为学习知识自动解答", "gpt-3.5-turbo", "%s", 0.3, 1.0, 1.0, 0.0, 0.0, ""));
 //        PARMS.put("OpenAi49", new OpenAi("OpenAi49", "面试", "生成面试题", "gpt-3.5-turbo", "创建10道%s相关的面试题（中文）：\n", 0.5, 1.0, 10.0, 0.0, 0.0, ""));
         PARMS.put("OpenAi50", new OpenAi("OpenAi50", "图片生成", "图片生成", "gpt-3.5-turbo", "请根据以下描述生成图片：%s\n", 0.5, 1.0, 10.0, 0.0, 0.0, ""));
+        PARMS.put("OpenAi51", new OpenAi("OpenAi51", "长文模式", "长文模式", "gpt-3.5-turbo", "续写内容：%s\n", 0.5, 1.0, 10.0, 0.0, 0.0, ""));
     }
 
     public static String OPENAPI_TOKEN = "";
@@ -769,7 +770,7 @@ public class OpenAiUtils {
         json.put("response_format","url");
 
         //发送请求
-        HttpResponse response = HttpRequest.post("https://api.openai.com/v1/images/generations")
+        HttpResponse response = HttpRequest.post("https://api.liaocatcat.xyz/v1/images/generations")
                 .headerMap(headers, false)
                 .body(String.valueOf(json))
                 .timeout(5 * 60 * 1000)
