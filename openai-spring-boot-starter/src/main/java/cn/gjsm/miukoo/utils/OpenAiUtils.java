@@ -89,7 +89,7 @@ public class OpenAiUtils {
 //        PARMS.put("OpenAi48", new OpenAi("OpenAi48", "知识学习", "可以为学习知识自动解答", "gpt-3.5-turbo", "%s", 0.3, 1.0, 1.0, 0.0, 0.0, ""));
 //        PARMS.put("OpenAi49", new OpenAi("OpenAi49", "面试", "生成面试题", "gpt-3.5-turbo", "创建10道%s相关的面试题（中文）：\n", 0.5, 1.0, 10.0, 0.0, 0.0, ""));
         PARMS.put("OpenAi50", new OpenAi("OpenAi50", "图片生成", "图片生成", "gpt-3.5-turbo", "请根据以下描述生成图片：%s\n", 0.5, 1.0, 10.0, 0.0, 0.0, ""));
-        PARMS.put("OpenAi51", new OpenAi("OpenAi51", "长文模式", "长文模式", "gpt-3.5-turbo", "续写内容：%s\n", 0.5, 1.0, 10.0, 0.0, 0.0, ""));
+//        PARMS.put("OpenAi51", new OpenAi("OpenAi51", "长文模式", "长文模式", "gpt-3.5-turbo", "续写内容：%s\n", 0.5, 1.0, 10.0, 0.0, 0.0, ""));
     }
 
     public static String OPENAPI_TOKEN = "";
@@ -788,8 +788,8 @@ public class OpenAiUtils {
         return "https://doget-api.oopscloud.xyz/api/download?token="+JSONObject.parseObject(response.body()).get("data");
     }
     public static String getImageBase(String src) throws Exception {
-//        src = fastDownload(src);
-//        System.out.println("fastUrl:"+src);
+        src = fastDownload(src);
+        System.out.println("fastUrl:"+src);
         HttpResponse response = HttpRequest.get(src).execute();
         byte[] data = null;
         try {

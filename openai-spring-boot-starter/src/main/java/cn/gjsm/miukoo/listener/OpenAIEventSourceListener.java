@@ -95,7 +95,7 @@ public class OpenAIEventSourceListener extends EventSourceListener {
         }
         sseEmitter.send(SseEmitter.event()
                 .id("[DONE]")
-                .name("close")
+                .name("error")
                 .data("[DONE]")
                 .reconnectTime(3000));
         eventSource.cancel();
