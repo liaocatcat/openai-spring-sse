@@ -20,6 +20,8 @@
 
 ```yml
 openai:
+  #  你的平替域名可在此替换
+  domain: https://api.openai.com/
   token: 你的秘钥
   timeout: 5000 // 超时时间
 ```
