@@ -116,7 +116,7 @@ public class OpenAiStreamClient {
                 ObjectMapper mapper = new ObjectMapper();
                 String requestBody = mapper.writeValueAsString(completion);
                 //官方地址是api.openai.com，我用自己的域名托管cloudflare进行了平替
-                Request request = (new Request.Builder()).url("https://api.liaocatcat.xyz/v1/completions").post(RequestBody.create(MediaType.parse(ContentType.JSON.getValue()), requestBody)).header("Authorization", "Bearer " + this.apiKey).build();
+                Request request = (new Request.Builder()).url(OpenAiUtils.DOMAIN+"v1/completions").post(RequestBody.create(MediaType.parse(ContentType.JSON.getValue()), requestBody)).header("Authorization", "Bearer " + this.apiKey).build();
                 factory.newEventSource(request, eventSourceListener);
             } catch (JsonProcessingException var8) {
                 log.error("请求参数解析异常：{}", var8);
@@ -148,7 +148,7 @@ public class OpenAiStreamClient {
                 ObjectMapper mapper = new ObjectMapper();
                 String requestBody = mapper.writeValueAsString(chatCompletion);
                 //官方地址是api.openai.com，我用自己的域名托管cloudflare进行了平替
-                Request request = (new Request.Builder()).url("https://api.liaocatcat.xyz/v1/chat/completions").post(RequestBody.create(MediaType.parse(ContentType.JSON.getValue()), requestBody)).header("Authorization", "Bearer " + this.apiKey).build();
+                Request request = (new Request.Builder()).url(OpenAiUtils.DOMAIN+"v1/chat/completions").post(RequestBody.create(MediaType.parse(ContentType.JSON.getValue()), requestBody)).header("Authorization", "Bearer " + this.apiKey).build();
                 factory.newEventSource(request, eventSourceListener);
             } catch (JsonProcessingException var8) {
                 log.error("请求参数解析异常：{}", var8);

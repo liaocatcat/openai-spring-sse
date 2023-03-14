@@ -2,6 +2,8 @@ server:
   port: 8080
 
 openai:
-#  你的密钥可在此替换
+  #  你的平替域名可在此替换
+  domain: https://api.openai.com/
+  #  你的密钥可在此替换
   token:
   timeout: 60000

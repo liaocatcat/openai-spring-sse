@@ -93,6 +93,7 @@ public class OpenAiUtils {
     }
 
     public static String OPENAPI_TOKEN = "";
+    public static String DOMAIN = "";
     public static Integer TIMEOUT = null;
     public static final Integer retries = 20;
 

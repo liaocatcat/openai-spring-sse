@@ -10,6 +10,7 @@ import org.springframework.boot.context.properties.ConfigurationProperties;
 public class OpenAiProperties implements InitializingBean {
     // 秘钥
     String token;
+    String domain;
     // 超时时间
     Integer timeout;
 
@@ -17,6 +18,7 @@ public class OpenAiProperties implements InitializingBean {
     @Override
     public void afterPropertiesSet() throws Exception {
         OpenAiUtils.OPENAPI_TOKEN = token;
+        OpenAiUtils.DOMAIN = domain;
         OpenAiUtils.TIMEOUT = timeout;
     }
 }
