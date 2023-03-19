@@ -89,15 +89,29 @@ public class OpenAIEventSourceListener extends EventSourceListener {
         }
         ResponseBody body = response.body();
         if (Objects.nonNull(body)) {
-            log.error("OpenAI  sse连接异常data：{}，异常：{}", body.string(), t);
+            String resp=body.string();
+            log.error("OpenAI  sse连接异常data：{}，异常：{}", resp, t);
+            if(resp.contains("tokens")&&resp.contains("error")){
+                sseEmitter.send(SseEmitter.event()
+                    .id("[DONE]")
+                    .name("close")
+                    .data(resp.replace("\n",""))
+                    .reconnectTime(3000));
+            }else{
+                sseEmitter.send(SseEmitter.event()
+                        .id("[DONE]")
+                        .name("error")
+                        .data("[DONE]")
+                        .reconnectTime(3000));
+            }
         } else {
             log.error("OpenAI  sse连接异常data：{}，异常：{}", response, t);
+            sseEmitter.send(SseEmitter.event()
+                    .id("[DONE]")
+                    .name("error")
+                    .data("[DONE]")
+                    .reconnectTime(3000));
         }
-        sseEmitter.send(SseEmitter.event()
-                .id("[DONE]")
-                .name("error")
-                .data("[DONE]")
-                .reconnectTime(3000));
         eventSource.cancel();
     }
 }
